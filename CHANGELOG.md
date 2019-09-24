@@ -6,3 +6,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Add [Kitty](https://sw.kovidgoyal.net/kitty/) configuration
+- Add git configuration
