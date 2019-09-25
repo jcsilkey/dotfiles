@@ -17,3 +17,5 @@ if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_VERSION_PATCH=$(echo $OS_VERSION | awk -F '-' '{print $1}' | awk -F '.' '{print $3}')
   export OS_VERSION_BUILD=$(sw_vers -buildVersion)
 fi
+
+export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
