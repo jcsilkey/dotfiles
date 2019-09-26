@@ -12,4 +12,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [tmux] Install [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
 - [tmux] Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
 - [tmux] Install [tmux-colors-solarized](https://github.com/seebi/tmux-colors-solarized) and set theme
-- Add installation script
+- [dotfiles] Add installation script
+- [tmux] Change command prefix to Ctrl-a
