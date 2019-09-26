@@ -12,5 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [tmux] Install [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
 - [tmux] Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
 - [tmux] Install [tmux-colors-solarized](https://github.com/seebi/tmux-colors-solarized) and set theme
+- [tmux] Install [tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+- [tmux] Install [tmux-pain-control](https://github.com/tmux-plugins/tmux-pain-control)
 - [dotfiles] Add installation script
 - [tmux] Change command prefix to Ctrl-a
+- [tmux] Enable vi copy mode
