@@ -17,3 +17,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [dotfiles] Add installation script
 - [tmux] Change command prefix to Ctrl-a
 - [tmux] Enable vi copy mode
+- [git] Add git commit message template
