@@ -18,4 +18,7 @@ if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_VERSION_BUILD=$(sw_vers -buildVersion)
 fi
 
+export AUTOENV_FILE_ENTER=.autoenv.zsh
+export AUTOENV_FILE_LEAVE=.autoenv.zsh
+export AUTOENV_HANDLE_LEAVE=1
 export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
