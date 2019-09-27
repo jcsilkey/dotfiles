@@ -6,33 +6,13 @@ require 'tmpdir'
 require 'net/http'
 require 'uri'
 
-sourcedir = File.join(Dir.pwd, 'src')
 tempdir = Dir.mktmpdir
 home = File.expand_path('~')
 
-puts "Installing dotfiles from '#{sourcedir}'"
-
-puts "Copying files to '#{tempdir}'"
-(Dir.entries(sourcedir).reject{ |f| f.start_with? '.' }).each do |f|
-  FileUtils.cp_r(File.join(sourcedir, f), File.join(tempdir, ".#{f}"))
-end
-
-puts "Syncing files to '#{home}'"
-Open3.popen3(
-  'rsync',
-  '-ar',
-  '-Iah',
-  '--safe-links',
-  '--executability',
-  "#{tempdir}/",
-  home) do |stdin, stdout, stderr|
-    stdout.read.split("\n").each do |line|
-      puts "rsync: #{line}"
-    end
-  end
-
 # Install VimPlug
 nvim_autoload = FileUtils.mkdir_p(File.join(home, '.local/share/nvim/site/autoload'))
+
+puts "Installing VimPlug into #{nvim_autoload}"
 
 File.open(File.join(nvim_autoload, 'plug.vim'), 'w') do |file|
   vimplug_uri = URI.parse("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
@@ -42,7 +22,7 @@ File.open(File.join(nvim_autoload, 'plug.vim'), 'w') do |file|
   file.write(vimplug_response.body)
 end
 
-# Install Homebrew
+puts "Installing Homebrew"
 brew_installer = File.join(tempdir, 'brew_install')
 
 File.open(brew_installer, 'w', 0744) do |file|
@@ -55,11 +35,13 @@ end
 
 system(brew_installer)
 
-# Install Homebrew packages
+puts "Installing Homebrew Packages"
 system('brew bundle install')
 
+puts "Installing pip packages"
 system('pip3 install -r pip3.txt')
 
 system('pip install -r pip2.txt')
 
+puts "Cleaning Up"
 FileUtils.rm_r(tempdir)

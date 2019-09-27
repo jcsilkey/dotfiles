@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'open3'
+require 'tmpdir'
+
+sourcedir = File.join(Dir.pwd, 'src')
+tempdir = Dir.mktmpdir
+home = File.expand_path('~')
+
+puts "Installing dotfiles from '#{sourcedir}'"
+
+puts "Copying files to '#{tempdir}'"
+(Dir.entries(sourcedir).reject{ |f| f.start_with? '.' }).each do |f|
+  FileUtils.cp_r(File.join(sourcedir, f), File.join(tempdir, ".#{f}"))
+end
+
+puts "Syncing files to '#{home}'"
+Open3.popen3(
+  'rsync',
+  '-ar',
+  '-Iah',
+  '--safe-links',
+  '--executability',
+  "#{tempdir}/",
+  home) do |stdin, stdout, stderr|
+    stdout.read.split("\n").each do |line|
+      puts "rsync: #{line}"
+    end
+  end
+
+FileUtils.rm_r(tempdir)

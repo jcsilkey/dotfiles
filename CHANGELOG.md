@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - [dotfiles] Add installation script
+- [dotfiles] Add dotfiles sync script
 - [brew] install [homebrew](https://brew.sh) and brew formulas
 - [kitty] Install [Kitty](https://sw.kovidgoyal.net/kitty/) from Homebrew
 - [kitty] Add Kitty configuration
