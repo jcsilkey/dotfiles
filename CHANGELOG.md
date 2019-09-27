@@ -26,4 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [cli] Install [tree](http://mama.indstate.edu/users/ice/tree/) from Homebrew
 - [nvim] Install [Neovim](https://neovim.io) from Homebrew
 - [nvim] Install [VimPlug](https://www.github.com/junegunn/vim-plug)
+- [nvim] Install [EditorConfig](https://github.com/editorconfig/editorconfig-vim) plugin
 - [editorconfig] Add root EditorConfig configuration
