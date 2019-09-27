@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [zsh] Install newer [zsh](https://www.zsh.org) from Homebrew
 - [zsh] Set some useful environment variables
 - [zsh] Set environment variables from `$HOME/.env` file if it exists
-- [util] Install [reattach-to-userspace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) from Homebrew
+- [cli] Install [reattach-to-userspace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) from Homebrew
 - [tmux] Install [tmux](https://github.com/tmux/tmux/wiki) from Homebrew
 - [tmux] Install [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
 - [tmux] Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
@@ -22,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [gui] Install nightly build of [Sequel Pro](https://formulae.brew.sh/cask/sequel-pro) from Homebrew
 - [font] Install [Input Font](https://input.fontbureau.com) from Homebrew
 - [gui] Install [VimR](http://vimr.org/) from Homebrew
-- [util] Install [EditorConfig](https://editorconfig.org/) from Homebrew
-- [util] Install [tree](http://mama.indstate.edu/users/ice/tree/) from Homebrew
+- [editorconfig] Install [EditorConfig](https://editorconfig.org/) from Homebrew
+- [cli] Install [tree](http://mama.indstate.edu/users/ice/tree/) from Homebrew
 - [nvim] Install [Neovim](https://neovim.io) from Homebrew
 - [nvim] Install [VimPlug](https://www.github.com/junegunn/vim-plug)
+- [editorconfig] Add root EditorConfig configuration
