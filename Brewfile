@@ -14,6 +14,7 @@ brew "tree"
 brew "zsh"
 
 cask "font-input"
+cask "kaleidoscope"
 cask "kitty"
 cask "sequel-pro-nightly"
 cask "vimr"
