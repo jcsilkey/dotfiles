@@ -3,6 +3,8 @@
 require 'fileutils'
 require 'open3'
 require 'tmpdir'
+require 'net/http'
+require 'uri'
 
 sourcedir = File.join(Dir.pwd, 'src')
 tempdir = Dir.mktmpdir
@@ -28,5 +30,21 @@ Open3.popen3(
       puts "rsync: #{line}"
     end
   end
+
+# Install Homebrew
+brew_installer = File.join(tempdir, 'brew_install')
+
+File.open(brew_installer, 'w', 0744) do |file|
+  brew_uri = URI.parse("https://raw.githubusercontent.com/Homebrew/install/master/install")
+
+  brew_response = Net::HTTP.get_response(brew_uri)
+
+  file.write(brew_response.body)
+end
+
+system(brew_installer)
+
+# Install Homebrew packages
+system('brew bundle install')
 
 FileUtils.rm_r(tempdir)

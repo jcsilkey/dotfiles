@@ -1,0 +1,17 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
+brew "editorconfig"
+brew "neovim"
+brew "reattach-to-user-namespace"
+brew "tmux"
+brew "tree"
+brew "zsh"
+
+cask "font-input"
+cask "kitty"
+cask "sequel-pro-nightly"
+cask "vimr"
