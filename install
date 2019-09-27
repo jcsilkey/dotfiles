@@ -58,4 +58,8 @@ system(brew_installer)
 # Install Homebrew packages
 system('brew bundle install')
 
+system('pip3 install -r pip3.txt')
+
+system('pip install -r pip2.txt')
+
 FileUtils.rm_r(tempdir)
