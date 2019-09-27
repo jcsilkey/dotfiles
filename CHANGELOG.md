@@ -34,3 +34,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [python] Install newer [Python 2](https://www.python.org) using Homebrew
 - [nvim] Install Python providers
 - [gui] Install [Kaleidoscope](https://www.kaleidoscopeapp.com) using Homebrew
+- [nvim]      
