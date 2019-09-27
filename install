@@ -31,6 +31,17 @@ Open3.popen3(
     end
   end
 
+# Install VimPlug
+nvim_autoload = FileUtils.mkdir_p(File.join(home, '.local/share/nvim/site/autoload'))
+
+File.open(File.join(nvim_autoload, 'plug.vim'), 'w') do |file|
+  vimplug_uri = URI.parse("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+
+  vimplug_response = Net::HTTP.get_response(vimplug_uri)
+
+  file.write(vimplug_response.body)
+end
+
 # Install Homebrew
 brew_installer = File.join(tempdir, 'brew_install')
 

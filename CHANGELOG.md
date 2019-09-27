@@ -19,9 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [tmux] Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
 - [tmux] Install [tmux-colors-solarized](https://github.com/seebi/tmux-colors-solarized) and set theme
 - [tmux] Change command prefix to Ctrl-a
-- [gui] Install nightly build of [Sequel Pro](https://formulae.brew.sh/cask/sequel-pro)
+- [gui] Install nightly build of [Sequel Pro](https://formulae.brew.sh/cask/sequel-pro) from Homebrew
 - [font] Install [Input Font](https://input.fontbureau.com) from Homebrew
 - [gui] Install [VimR](http://vimr.org/) from Homebrew
 - [util] Install [EditorConfig](https://editorconfig.org/) from Homebrew
 - [util] Install [tree](http://mama.indstate.edu/users/ice/tree/) from Homebrew
 - [nvim] Install [Neovim](https://neovim.io) from Homebrew
+- [nvim] Install [VimPlug](https://www.github.com/junegunn/vim-plug)
