@@ -6,6 +6,8 @@ tap "homebrew/core"
 
 brew "editorconfig"
 brew "neovim"
+brew "python"
+brew "python@2"
 brew "reattach-to-user-namespace"
 brew "tmux"
 brew "tree"
