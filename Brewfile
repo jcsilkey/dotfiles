@@ -5,6 +5,8 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 
 brew "editorconfig"
+brew "git"
+brew "git-lfs"
 brew "neovim"
 brew "packer"
 brew "python"
