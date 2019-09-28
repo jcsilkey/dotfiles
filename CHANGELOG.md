@@ -13,7 +13,14 @@
 - Install [git-lfs](https://git-lfs.github.com) using Homebrew
 
 ### [cli]
-- Install [ag](https://github.com/ggreer/the_silver_searcher) using Homebrew
+- Install [the_silver_searcher](https://github.com/ggreer/the_silver_searcher) using Homebrew
+- Install [fzf](https://github.com/junegunn/fzf) using Homebrew
+
+### [nvim]
+- Install [fzf](https://github.com/junegunn/fzf.vim) plugin
+- Install [deoplete](https://github.com/Shougo/deoplete.nvim) plugin
+- Install [LaguageClient](https://github.com/autozimu/LanguageClient-neovim) plugin
+
 
 ## [2019-09-26]
 ### [dotfiles]
@@ -65,14 +72,13 @@
 - Install [VimPlug](https://www.github.com/junegunn/vim-plug)
 - Install [EditorConfig](https://github.com/editorconfig/editorconfig-vim) plugin
 - Install [Vdebug](https://github.com/vim-vdebug/vdebug) plugin
-
-### [python]
-- Install [Python 3](https://www.python.org) using Homebrew
-- Install newer [Python 2](https://www.python.org) using Homebrew
-
-### [nvim]
+- Install [Solarized](https://github.com/lifepillar/vim-solarized8) colorscheme
 - Install Python providers
 - Set tab settings
 - Improved split settings
 - Show line numbering
 - Update search settings
+
+### [python]
+- Install [Python 3](https://www.python.org) using Homebrew
+- Install newer [Python 2](https://www.python.org) using Homebrew

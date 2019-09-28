@@ -47,3 +47,5 @@ nnoremap <c-h> <c-w><c-h>
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 set splitbelow
 set splitright
+
+let g:deoplete#enable_at_startup = 1
