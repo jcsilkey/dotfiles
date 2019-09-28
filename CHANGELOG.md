@@ -1,40 +1,78 @@
 # Changelog
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2019-09-27]
+### [devtools]
+- Install [Vagrant](https://vagrantup.com) using Homebrew
+- Install [Packer](https://packer.io) using Homebrew
+- Install [Virtualbox](https://virtualbox.org) using Homebrew
+- Install [Virtualbox Extensions](https://virtualbox.org) using Homebrew
+- Install [Docker Edge](https://www.docker.com/products/docker-desktop) using Homebrew
 
-## [Unreleased]
-- [dotfiles] Add installation script
-- [dotfiles] Add dotfiles sync script
-- [brew] install [homebrew](https://brew.sh) and brew formulas
-- [kitty] Install [Kitty](https://sw.kovidgoyal.net/kitty/) using Homebrew
-- [kitty] Add Kitty configuration
-- [git] Add git configuration
-- [zsh] Install newer [zsh](https://www.zsh.org) using Homebrew
-- [zsh] Set some useful environment variables
-- [zsh] Set environment variables from `$HOME/.env` file if it exists
-- [cli] Install [reattach-to-userspace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) using Homebrew
-- [tmux] Install [tmux](https://github.com/tmux/tmux/wiki) using Homebrew
-- [tmux] Install [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
-- [tmux] Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
-- [tmux] Install [tmux-colors-solarized](https://github.com/seebi/tmux-colors-solarized) and set theme
-- [tmux] Change command prefix to Ctrl-a
-- [gui] Install nightly build of [Sequel Pro](https://formulae.brew.sh/cask/sequel-pro) using Homebrew
-- [font] Install [Input Font](https://input.fontbureau.com) using Homebrew
-- [gui] Install [VimR](http://vimr.org/) using Homebrew
-- [editorconfig] Install [EditorConfig](https://editorconfig.org/) using Homebrew
-- [cli] Install [tree](http://mama.indstate.edu/users/ice/tree/) using Homebrew
-- [nvim] Install [Neovim](https://neovim.io) using Homebrew
-- [nvim] Install [VimPlug](https://www.github.com/junegunn/vim-plug)
-- [nvim] Install [EditorConfig](https://github.com/editorconfig/editorconfig-vim) plugin
-- [nvim] Install [Vdebug](https://github.com/vim-vdebug/vdebug) plugin
-- [editorconfig] Add root EditorConfig configuration
-- [python] Install [Python 3](https://www.python.org) using Homebrew
-- [python] Install newer [Python 2](https://www.python.org) using Homebrew
-- [nvim] Install Python providers
-- [gui] Install [Kaleidoscope](https://www.kaleidoscopeapp.com) using Homebrew
-- [nvim] Set tab settings
-- [nvim] Improved split settings
-- [nvim] Show line numbering
-- [nvim] Update search settings
+### [git]
+- Install newer [git](https://git-scm.com) using Homebrew
+- Install [git-lfs](https://git-lfs.github.com) using Homebrew
+
+### [cli]
+- Install [ag](https://github.com/ggreer/the_silver_searcher) using Homebrew
+
+## [2019-09-26]
+### [dotfiles]
+- Add installation script
+- Add dotfiles sync script
+
+### [homebrew]
+- install [homebrew](https://brew.sh) and brew formulas
+
+### [kitty]
+- Install [Kitty](https://sw.kovidgoyal.net/kitty/) using Homebrew
+- Add Kitty configuration
+
+### [git]
+- Add git configuration
+
+### [zsh]
+- Install newer [zsh](https://www.zsh.org) using Homebrew
+- Set some useful environment variables
+- Set environment variables from `$HOME/.env` file if it exists
+
+### [cli]
+- Install [reattach-to-userspace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) using Homebrew
+
+### [tmux]
+- Install [tmux](https://github.com/tmux/tmux/wiki) using Homebrew
+- Install [Tmux Plugin Manager (TPM)](https://github.com/tmux-plugins/tpm)
+- Install [tmux-yank](https://github.com/tmux-plugins/tmux-yank)
+- Install [tmux-colors-solarized](https://github.com/seebi/tmux-colors-solarized) and set theme
+- Change command prefix to Ctrl-a
+
+### [gui]
+- Install nightly build of [Sequel Pro](https://formulae.brew.sh/cask/sequel-pro) using Homebrew
+- Install [VimR](http://vimr.org/) using Homebrew
+- Install [Kaleidoscope](https://www.kaleidoscopeapp.com) using Homebrew
+
+### [fonts]
+- Install [Input Font](https://input.fontbureau.com) using Homebrew
+
+### [editorconfig]
+- Install [EditorConfig](https://editorconfig.org/) using Homebrew
+- Add root EditorConfig configuration
+
+### [cli]
+- Install [tree](http://mama.indstate.edu/users/ice/tree/) using Homebrew
+
+### [nvim]
+- Install [Neovim](https://neovim.io) using Homebrew
+- Install [VimPlug](https://www.github.com/junegunn/vim-plug)
+- Install [EditorConfig](https://github.com/editorconfig/editorconfig-vim) plugin
+- Install [Vdebug](https://github.com/vim-vdebug/vdebug) plugin
+
+### [python]
+- Install [Python 3](https://www.python.org) using Homebrew
+- Install newer [Python 2](https://www.python.org) using Homebrew
+
+### [nvim]
+- Install Python providers
+- Set tab settings
+- Improved split settings
+- Show line numbering
+- Update search settings
