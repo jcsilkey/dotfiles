@@ -14,6 +14,7 @@ brew "tmux"
 brew "tree"
 brew "zsh"
 
+cask "docker-edge"
 cask "font-input"
 cask "kaleidoscope"
 cask "kitty"
