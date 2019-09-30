@@ -1,5 +1,9 @@
 # Changelog
 
+## [2019-09-29]
+### [nvim]
+- Plugin settings are now stored per file
+
 ## [2019-09-27]
 ### [devtools]
 - Install [Vagrant](https://vagrantup.com) using Homebrew
