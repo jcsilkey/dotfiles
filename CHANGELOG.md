@@ -1,5 +1,10 @@
 # Changelog
 
+## [2019-09-30]
+### [nvim]
+- Install PHP language server
+- Enable node support
+
 ## [2019-09-29]
 ### [nvim]
 - Plugin settings are now stored per file
