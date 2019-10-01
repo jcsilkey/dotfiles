@@ -9,6 +9,8 @@ brew "fzf"
 brew "git"
 brew "git-lfs"
 brew "python"
+brew "highlight"
+brew "mas"
 brew "neovim"
 brew "node"
 brew "packer"
@@ -32,3 +34,12 @@ cask "vagrant-manager"
 cask "vimr"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
+
+mas "Amphetamine", id: 937984704
+mas "CCMenu", id: 603117688
+mas "Magnet", id: 441258766
+mas "Medis", id: 1063631769
+mas "OmniGraffle", id: 1142578753
+mas "Roadblock", id: 1051436753
+mas "Slack", id: 803453959
+mas "Xcode", id: 497799835
