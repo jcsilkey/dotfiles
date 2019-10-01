@@ -9,19 +9,6 @@ require 'uri'
 tempdir = Dir.mktmpdir
 home = File.expand_path('~')
 
-# Install VimPlug
-nvim_autoload = FileUtils.mkdir_p(File.join(home, '.local/share/nvim/site/autoload'))
-
-puts "Installing VimPlug into #{nvim_autoload}"
-
-File.open(File.join(nvim_autoload, 'plug.vim'), 'w') do |file|
-  vimplug_uri = URI.parse("https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
-
-  vimplug_response = Net::HTTP.get_response(vimplug_uri)
-
-  file.write(vimplug_response.body)
-end
-
 puts "Installing Homebrew"
 brew_installer = File.join(tempdir, 'brew_install')
 
@@ -37,6 +24,12 @@ system(brew_installer)
 
 puts "Installing Homebrew Packages"
 system('brew bundle install')
+
+puts "Installing composer"
+system(File.join(Dir.pwd, 'install_composer'))
+
+puts "Installing composer packages"
+system('composer global install')
 
 puts "Installing pip packages"
 system('pip3 install -r pip3.txt')

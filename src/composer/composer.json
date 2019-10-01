@@ -1,0 +1,9 @@
+{
+  "minimum-stability" : "dev",
+  "config" : {
+    "bin-dir": "/usr/local/bin"
+  },
+  "require": {
+    "felixfbecker/language-server": "dev-master"
+  }
+}
