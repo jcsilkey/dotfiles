@@ -1,0 +1,33 @@
+# load custom executable functions
+for function in $ZDOTCONFIG/functions/*; do
+  source $function
+done
+
+[[ ! -f "${ZDOTLOCAL}/plugins.zsh" ]] && \
+    antibody bundle < "${ZDOTCONFIG}/plugins.txt" > "${ZDOTLOCAL}/plugins.zsh"
+
+source "${ZDOTLOCAL}/plugins.zsh"
+
+zmodload zsh/termcap
+zmodload zsh/terminfo
+
+if (alias run-help > /dev/null); then
+  unalias run-help
+fi
+autoload run-help
+autoload -Uz vcs_info
+autoload zmv
+
+load_settings "${ZDOTCONFIG}/configs"
+
+autoload -Uz compinit promptinit
+promptinit
+compinit -u
+
+# completion; use cache if updated within 24h
+#autoload -Uz compinit
+#if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+#  compinit -d $HOME/.zcompdump;
+#else
+#  compinit -C;
+#fi;

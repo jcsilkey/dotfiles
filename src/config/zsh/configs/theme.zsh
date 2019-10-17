@@ -1,0 +1,10 @@
+export BULLETTRAIN_PROMPT_CHAR='❯'
+export BULLETTRAIN_CONTEXT_BG='245'
+export BULLETTRAIN_CONTEXT_FG='230'
+
+export BULLETTRAIN_PROMPT_ORDER=(
+  time
+  context
+  dir
+  git
+)

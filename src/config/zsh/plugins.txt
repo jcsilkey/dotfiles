@@ -1,0 +1,5 @@
+Tarrasch/zsh-autoenv
+caiogondim/bullet-train.zsh
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+zsh-users/zsh-completions

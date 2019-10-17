@@ -1,14 +1,3 @@
-#
-# Defines environment variables.
-#
-
-if [[ -f $HOME/.env ]]; then
-    while read line
-    do
-        export $line
-    done < $HOME/.env
-fi
-
 if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_PLATFORM='mac'
   export OS_VERSION=$(sw_vers -productVersion)
@@ -18,7 +7,19 @@ if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_VERSION_BUILD=$(sw_vers -buildVersion)
 fi
 
-export AUTOENV_FILE_ENTER=.autoenv.zsh
-export AUTOENV_FILE_LEAVE=.autoenv.zsh
-export AUTOENV_HANDLE_LEAVE=1
+: ${ZDOTCONFIG="${HOME}/.config/zsh"}
+export ZDOTCONFIG
+export ZDOTLOCAL="${HOME}/.local/share/zsh"
+
+export ANTIBODY_HOME="${ZDOTLOCAL}/plugins"
+
 export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
+
+export HELPDIR=/usr/local/share/zsh/help
+
+if [[ -f $HOME/.env ]]; then
+    while read line
+    do
+        export $line
+    done < $HOME/.env
+fi
