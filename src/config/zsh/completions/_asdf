@@ -1,0 +1,90 @@
+#compdef asdf
+
+__asdf_commands() {
+    local -a commands
+    commands=(
+        'plugin-add:Add a plugin from the plugin repo or add a git repo as a plugin'
+        'plugin-list:List linstalled plugins'
+        'plugin-list-all:List plugins registered on asdf-plugins repository'
+        'plugin-remove:Remove plugin and package versions'
+        'plugin-update:Update plugins'
+        'install:Install specific version of a package or all package versions in the .tool-versions file'
+        'uninstall:Remove a specific version of a package'
+        'current:Display current version set or being used for packages'
+        'where:Display install path for an installed or current version'
+        'which:Display the path to an executable'
+        'shell:Set the package version in the current shell'
+        'local:Set the package local version'
+        'global:Set the package global version'
+        'list:List installed versions of a package'
+        'list-all:List all versions of a package'
+        'exec:Executes the command shim for current version'
+        'env:Prints or runs an executable under a command environment'
+        'reshim:Recreate shims for version of a package'
+        'shim-versions:List on which plugins and versions is command available'
+        'update:Update asdf to the latest stable release'
+    )
+    _describe -t asdf-commands 'commands' commands
+}
+
+__asdf_installed_plugins() {
+    local -a plugins
+    plugins=($(asdf plugin-list))
+    _describe -t installed-plugins 'installed plugins' plugins
+}
+
+__asdf_package_versions() {
+    local -a versions
+    local -a package
+    package="${line[1]}"
+    versions=($(asdf list-all $package))
+    _describe -V -t package-versions 'package versions' versions
+}
+
+_asdf_plugin_list() {
+    _arguments \
+        '--urls[List installed plugins with repository URLs]'
+}
+
+_asdf_plugin_remove() {
+    _arguments \
+        ': :__asdf_installed_plugins'
+}
+
+_asdf_install() {
+    _arguments \
+        ': :__asdf_installed_plugins' \
+        ': :__asdf_package_versions'
+}
+
+_asdf_plugin_update() {
+    _alternative \
+        'args:arg:( --all )' \
+        'installed-plugins:plugin:__asdf_installed_plugins'
+}
+
+_asdf() {
+  local curcontext="$curcontext" state state_descr line expl
+  local tmp ret=1
+
+  _arguments -C : \
+    '1:command:->command' \
+    '*::options:->options' && return 0
+
+    local -a plugin_list_args && plugin_list_args=(
+        '--urls'
+    )
+
+    case $state in
+        command)
+            __asdf_commands && return 0
+            ;;
+        options)
+            local command
+            command="${line[1]}"
+
+            local completion_func="_asdf_${command//-/_}"
+            _call_function ret "${completion_func}" && return ret
+        ;;
+    esac
+}
