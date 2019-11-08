@@ -11,10 +11,14 @@ fi
 export ZDOTCONFIG
 export ZDOTLOCAL="${HOME}/.local/share/zsh"
 
-export ANTIBODY_HOME="${ZDOTLOCAL}/plugins"
+: ${ZSH_CONFIG="${HOME}/.config/zsh"}
+: ${ZSH_LOCAL="${HOME}/.local/share/zsh"}
 
+export ZSH_CONFIG
+export ZSH_LOCAL
+export ZSH_CACHE_DIR="${ZSH_LOCAL}/zcompcache"
+export ANTIBODY_HOME="${ZSH_LOCAL}/plugins"
 export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
-
 export HELPDIR=/usr/local/share/zsh/help
 
 if [[ -f $HOME/.env ]]; then
@@ -23,3 +27,5 @@ if [[ -f $HOME/.env ]]; then
         export $line
     done < $HOME/.env
 fi
+
+: ${ZSH_COMP_CACHE=1}
