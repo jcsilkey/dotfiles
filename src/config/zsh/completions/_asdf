@@ -38,29 +38,67 @@ __asdf_package_versions() {
     local -a package
     package="${line[1]}"
     versions=($(asdf list-all $package))
-    _describe -V -t package-versions 'package versions' versions
+    _describe -V -t package-versions 'available package versions' versions
 }
 
+__asdf_installed_package_versions() {
+    local -a versions
+    local -a package
+    package="${line[1]}"
+    versions=($(asdf list $package))
+    _describe -V -t installed-package-versions 'installed package versions' versions
+}
+
+##### PLUGIN COMMANDS #####
+# asdf plugin-list
 _asdf_plugin_list() {
     _arguments \
         '--urls[List installed plugins with repository URLs]'
 }
 
+# asdf plugin-remove <name>
 _asdf_plugin_remove() {
     _arguments \
         ': :__asdf_installed_plugins'
 }
 
+# asdf plugin-update <name|--all>
+_asdf_plugin_update() {
+    _alternative \
+        'args:arg:( --all )' \
+        'installed-plugins:plugin:__asdf_installed_plugins'
+}
+
+##### PACKAGE COMMANDS #####
+
+# asdf install [<name> <version>]
 _asdf_install() {
     _arguments \
         ': :__asdf_installed_plugins' \
         ': :__asdf_package_versions'
 }
 
-_asdf_plugin_update() {
-    _alternative \
-        'args:arg:( --all )' \
-        'installed-plugins:plugin:__asdf_installed_plugins'
+# asdf uninstall <name> <version>
+_asdf_uninstall() {
+    _arguments \
+        ': :__asdf_installed_plugins' \
+        ': :__asdf_installed_package_versions'
+}
+
+# asdf current [<name>]
+_asdf_current() {
+    _arguments \
+        ': :__asdf_installed_plugins'
+}
+
+# asdf list <name>>
+_asdf_list() {
+    _arguments \
+        ': :__asdf_installed_plugins'
+}
+
+_asdf_list_all() {
+    _asdf_list
 }
 
 _asdf() {
