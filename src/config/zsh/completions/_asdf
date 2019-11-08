@@ -27,6 +27,30 @@ __asdf_commands() {
     _describe -t asdf-commands 'commands' commands
 }
 
+__asdf_completion_caching_policy() {
+    local -a policy
+        policy=( "$1"(Nm+7) )
+        (( $#policy ))
+}
+
+__asdf_plugins() {
+    local -A plugins
+    local -a available_plugins
+    local comp_cachename=asdf_available_plugins
+
+    if _cache_invalid $comp_cachename || ! _retrieve_cache $comp_cachename; then
+        plugins=($(asdf plugin-list-all))
+
+        for key val in ${(kv)plugins}; do
+            available_plugins+=($key)
+        done
+
+        _store_cache $comp_cachename available_plugins
+    fi
+
+    _describe -t plugins 'avalaible plugins' available_plugins
+}
+
 __asdf_installed_plugins() {
     local -a plugins
     plugins=($(asdf plugin-list))
@@ -50,6 +74,12 @@ __asdf_installed_package_versions() {
 }
 
 ##### PLUGIN COMMANDS #####
+# asdf plugin-add <name> [<git-url]
+_asdf_plugin_add() {
+    _arguments \
+        ': :__asdf_plugins'
+}
+
 # asdf plugin-list
 _asdf_plugin_list() {
     _arguments \
@@ -115,11 +145,23 @@ _asdf() {
 
     case $state in
         command)
+            # set default cache policy
+            zstyle -s ":completion:${curcontext%:*}:*" cache-policy tmp
+
+            [[ -n $tmp ]] ||
+            zstyle ":completion:${curcontext%:*}:*" cache-policy \
+                __asdf_completion_caching_policy
+
             __asdf_commands && return 0
             ;;
         options)
             local command
             command="${line[1]}"
+
+            curcontext="${curcontext%:*}-${command}:${curcontext##*:}"
+
+            zstyle ":completion:${curcontext%:*}:*" cache-policy \
+                __asdf_completion_caching_policy
 
             local completion_func="_asdf_${command//-/_}"
             _call_function ret "${completion_func}" && return ret
