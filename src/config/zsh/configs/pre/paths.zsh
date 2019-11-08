@@ -2,7 +2,8 @@ typeset -gU cdpath fpath mailpath manpath path
 typeset -gUT INFOPATH infopath
 
 fpath=(
-  $ZDOTCONFIG/completions
+  $ZSH_CONFIG/completions
+  $ZSH_CONFIG/functions
   /usr/local/share/zsh/site-functions
   $fpath
 )

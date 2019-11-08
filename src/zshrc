@@ -1,12 +1,14 @@
 # load custom executable functions
-for function in $ZDOTCONFIG/functions/*; do
+for function in $ZSH_CONFIG/functions/*; do
   source $function
 done
 
-[[ ! -f "${ZDOTLOCAL}/plugins.zsh" ]] && \
-    antibody bundle < "${ZDOTCONFIG}/plugins.txt" > "${ZDOTLOCAL}/plugins.zsh"
+source $ZSH_CONFIG/functions/load_settings
 
-source "${ZDOTLOCAL}/plugins.zsh"
+[[ ! -f "${ZSH_LOCAL}/plugins.zsh" ]] && \
+    antibody bundle < "${ZSH_CONFIG}/plugins.txt" > "${ZSH_LOCAL}/plugins.zsh"
+
+source "${ZSH_LOCAL}/plugins.zsh"
 
 zmodload zsh/termcap
 zmodload zsh/terminfo
@@ -18,7 +20,7 @@ autoload run-help
 autoload -Uz vcs_info
 autoload zmv
 
-load_settings "${ZDOTCONFIG}/configs"
+load_settings "${ZSH_CONFIG}/configs"
 
 autoload -Uz compinit promptinit
 promptinit
