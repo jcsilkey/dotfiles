@@ -8,16 +8,14 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 charset = utf-8
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
+indent_size = 4
 
-[*.{js,json}]
-indent_size = 2
+[*.php]
+indent_size = 4
 
-[*.{yml,yaml}]
-indent_size = 2
-
-[*.{rb}]
+[*.{js,json,yml,yaml,rb}]
 indent_size = 2
