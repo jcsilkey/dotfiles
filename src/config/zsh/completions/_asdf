@@ -80,6 +80,12 @@ __asdf_installed_package_versions() {
   _describe -V -t installed-package-versions 'installed package versions' versions
 }
 
+__asdf_available_package_versions() {
+  _alternative \
+    'args:arg:( system )' \
+    'installed-plugins:plugin:__asdf_installed_package_versions'
+}
+
 ##### PLUGIN COMMANDS #####
 # asdf plugin-add <name> [<git-url]
 _asdf_plugin_add() {
@@ -122,6 +128,32 @@ _asdf_uninstall() {
     ': :__asdf_installed_package_versions'
 }
 
+# asdf where <name> [<version>]
+_asdf_where() {
+  _arguments \
+    ': :__asdf_installed_plugins' \
+    ': :__asdf_installed_package_versions'
+}
+
+# @TODO asdf which <command>
+
+# asdf shell <name> <version>
+_asdf_shell() {
+  _arguments \
+    ': :__asdf_installed_plugins' \
+    ': :__asdf_available_package_versions'
+}
+
+# asdf local <name> <version>
+_asdf_local() {
+  _asdf_shell
+}
+
+# asdf global <name> <version>
+_asdf_global() {
+  _asdf_shell
+}
+
 # asdf current [<name>]
 _asdf_current() {
   _arguments \
@@ -137,6 +169,19 @@ _asdf_list() {
 _asdf_list_all() {
   _asdf_list
 }
+
+##### UTIL COMMANDS #####
+# @TODO asdf exec <command> [args...]
+# @TODO asdf env <command> [executable]
+
+# asdf reshim <name> <version>
+_asdf_reshim() {
+  _arguments \
+    ': :__asdf_installed_plugins' \
+    ': :__asdf_available_package_versions'
+}
+
+# @TODO asdf shim-versions <command>
 
 _asdf() {
   local curcontext="$curcontext" state state_descr line expl
