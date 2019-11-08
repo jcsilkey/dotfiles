@@ -61,7 +61,14 @@ __asdf_package_versions() {
     local -a versions
     local -a package
     package="${line[1]}"
-    versions=($(asdf list-all $package))
+
+    local comp_cachename="asdf_package_${package}_versions"
+
+    if _cache_invalid $comp_cachename || ! _retrieve_cache $comp_cachename; then
+        versions=($(asdf list-all $package))
+        _store_cache $comp_cachename versions
+    fi
+
     _describe -V -t package-versions 'available package versions' versions
 }
 
