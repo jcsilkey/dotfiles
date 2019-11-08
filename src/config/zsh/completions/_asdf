@@ -22,7 +22,7 @@ __asdf_commands() {
     'env:Prints or runs an executable under a command environment'
     'reshim:Recreate shims for version of a package'
     'shim-versions:List on which plugins and versions is command available'
-    'update:Update asdf to the latest stable release'
+    'update:Update asdf'
   )
   _describe -t asdf-commands 'commands' commands
 }
@@ -93,7 +93,7 @@ _asdf_plugin_add() {
     ': :__asdf_plugins'
 }
 
-# asdf plugin-list
+# asdf plugin-list [--url]
 _asdf_plugin_list() {
   _arguments \
     '--urls[List installed plugins with repository URLs]'
@@ -183,6 +183,12 @@ _asdf_reshim() {
 
 # @TODO asdf shim-versions <command>
 
+# asdf update [--head]
+_asdf_update() {
+  _arguments \
+    '--head[Update asdf to the latest on the master branch]'
+}
+
 _asdf() {
   local curcontext="$curcontext" state state_descr line expl
   local tmp ret=1
@@ -190,10 +196,6 @@ _asdf() {
   _arguments -C : \
     '1:command:->command' \
     '*::options:->options' && return 0
-
-  local -a plugin_list_args && plugin_list_args=(
-    '--urls'
-  )
 
   case $state in
     command)
