@@ -1,5 +1,3 @@
-setopt no_global_rcs
-
 if [[ -f $HOME/.env ]]; then
     while read line
     do

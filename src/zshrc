@@ -1,3 +1,5 @@
+setopt no_global_rcs
+
 # load custom executable functions
 for function in $ZSH_CONFIG/functions/*; do
   autoload -Uz +X $function
