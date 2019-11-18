@@ -1,3 +1,12 @@
+setopt no_global_rcs
+
+if [[ -f $HOME/.env ]]; then
+    while read line
+    do
+        export $line
+    done < $HOME/.env
+fi
+
 if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_PLATFORM='mac'
   export OS_VERSION=$(sw_vers -productVersion)
@@ -7,25 +16,17 @@ if [[ "$OSTYPE" = darwin* ]] && [[ $(sw_vers -productName) = 'Mac OS X' ]]; then
   export OS_VERSION_BUILD=$(sw_vers -buildVersion)
 fi
 
-: ${ZDOTCONFIG="${HOME}/.config/zsh"}
-export ZDOTCONFIG
-export ZDOTLOCAL="${HOME}/.local/share/zsh"
-
 : ${ZSH_CONFIG="${HOME}/.config/zsh"}
 : ${ZSH_LOCAL="${HOME}/.local/share/zsh"}
+: ${ZSH_COMP_CACHE=1}
+: ${ZSH_COMP_CACHE_DIR="${ZSH_LOCAL}/compcache"}
+: ${ANTIBODY_HOME="${ZSH_LOCAL}/plugins"}
+: ${TMUX_PLUGIN_MANAGER_PATH="${HOME}/.local/share/tmux/plugins"}
 
 export ZSH_CONFIG
 export ZSH_LOCAL
-export ZSH_CACHE_DIR="${ZSH_LOCAL}/zcompcache"
-export ANTIBODY_HOME="${ZSH_LOCAL}/plugins"
-export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.config/tmux/plugins"
+export ZSH_COMP_CACHE
+export ZSH_COMP_CACHE_DIR
+export ANTIBODY_HOME
+export TMUX_PLUGIN_MANAGER_PATH
 export HELPDIR=/usr/local/share/zsh/help
-
-if [[ -f $HOME/.env ]]; then
-    while read line
-    do
-        export $line
-    done < $HOME/.env
-fi
-
-: ${ZSH_COMP_CACHE=1}

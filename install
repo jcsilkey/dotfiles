@@ -34,7 +34,7 @@ system('composer global install')
 puts "Installing pip packages"
 system('pip3 install -r pip3.txt')
 
-system('pip install -r pip2.txt')
+system('pip2 install -r pip2.txt')
 
 puts "Cleaning Up"
 FileUtils.rm_r(tempdir)

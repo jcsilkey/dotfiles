@@ -29,21 +29,3 @@ path=(
   /{bin,sbin}
   $path
 )
-
-# MacOSX
-if [[ "$OSTYPE" = darwin*  && -d /opt/local ]]; then
-  infopath=(
-    /opt/local/share/info
-    $infopath
-  )
-
-  manpath=(
-    /opt/local/share/man
-    $manpath
-  )
-
-  path=(
-    /opt/local/{bin,sbin}
-    $path
-  )
-fi

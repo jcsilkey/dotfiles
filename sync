@@ -32,4 +32,6 @@ Open3.popen3(
 puts "Installing zsh plugins"
 system('export ANTIBODY_HOME=~/.local/share/zsh/plugins && antibody bundle < ~/.config/zsh/plugins.txt > ~/.local/share/zsh/plugins.zsh')
 
+system('compdump')
+
 FileUtils.rm_r(tempdir)

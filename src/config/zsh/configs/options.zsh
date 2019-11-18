@@ -13,6 +13,3 @@ setopt \
 
 unsetopt \
     list_beep
-
-zstyle ':completion::complete:*' use-cache $ZSH_COMP_CACHE
-zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR

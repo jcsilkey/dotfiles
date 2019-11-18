@@ -1,9 +1,7 @@
 # load custom executable functions
 for function in $ZSH_CONFIG/functions/*; do
-  source $function
+  autoload -Uz +X $function
 done
-
-source $ZSH_CONFIG/functions/load_settings
 
 [[ ! -f "${ZSH_LOCAL}/plugins.zsh" ]] && \
     antibody bundle < "${ZSH_CONFIG}/plugins.txt" > "${ZSH_LOCAL}/plugins.zsh"
@@ -22,14 +20,5 @@ autoload zmv
 
 load_settings "${ZSH_CONFIG}/configs"
 
-autoload -Uz compinit promptinit
+autoload -Uz promptinit
 promptinit
-compinit -u
-
-# completion; use cache if updated within 24h
-#autoload -Uz compinit
-#if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
-#  compinit -d $HOME/.zcompdump;
-#else
-#  compinit -C;
-#fi;

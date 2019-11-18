@@ -1,4 +1,4 @@
-export HISTFILE=$ZDOTLOCAL/zshistory
+export HISTFILE="${ZSH_LOCAL}/zshistory"
 export HISTORY_IGNORE="(exec '/Applications/VimR.app*')"
 export HISTSIZE=10000
 export SAVEHIST=10000
