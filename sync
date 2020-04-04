@@ -12,13 +12,13 @@ puts "Installing dotfiles from '#{sourcedir}'"
 
 puts "Copying files to '#{tempdir}'"
 (Dir.entries(sourcedir).reject{ |f| f.start_with? '.' }).each do |f|
-  FileUtils.cp_r(File.join(sourcedir, f), File.join(tempdir, ".#{f}"))
+  FileUtils.cp_r(File.join(sourcedir, f), File.join(tempdir, ".#{f}"), :preserve => true, :remove_destination => true)
 end
 
 puts "Syncing files to '#{home}'"
 Open3.popen3(
   'rsync',
-  '-ar',
+  '-apr',
   '-Iah',
   '--safe-links',
   '--executability',

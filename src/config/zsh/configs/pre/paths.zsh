@@ -9,6 +9,7 @@ fpath=(
 )
 
 manpath=(
+  /usr/local/MacGPG2/share/man
   /usr/local/share/man
   /usr/share/man
   $manpath
@@ -24,6 +25,7 @@ path=(
   ~/bin
   ~/.bin
   ~/.composer/vendor/bin
+  /usr/local/MacGPG2/bin
   /usr/local/{bin,sbin}
   /usr/{bin,sbin}
   /{bin,sbin}
