@@ -20,11 +20,15 @@ fi
 : ${ZSH_COMP_CACHE_DIR="${ZSH_LOCAL}/compcache"}
 : ${ANTIBODY_HOME="${ZSH_LOCAL}/plugins"}
 : ${TMUX_PLUGIN_MANAGER_PATH="${HOME}/.local/share/tmux/plugins"}
+: ${PINENTRY_USER_DATA="USE_CURSES=1"}
+: ${GPG_TTY="tty"}
 
+export ANTIBODY_HOME
+export GPG_TTY
+export HELPDIR=/usr/local/share/zsh/help
+export PINENTRY_USER_DATA
+export TMUX_PLUGIN_MANAGER_PATH
 export ZSH_CONFIG
 export ZSH_LOCAL
 export ZSH_COMP_CACHE
 export ZSH_COMP_CACHE_DIR
-export ANTIBODY_HOME
-export TMUX_PLUGIN_MANAGER_PATH
-export HELPDIR=/usr/local/share/zsh/help
